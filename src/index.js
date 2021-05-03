@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { playersReducer } from './reducers/playersReducer';
 import { createStore } from "redux";
 
+let store = createStore(playersReducer)
+
 ReactDOM.render(
   <React.StrictMode>
     <App store={store}/>
@@ -13,7 +15,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-let store = createStore(playersReducer)
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
