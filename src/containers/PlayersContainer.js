@@ -13,7 +13,7 @@ class PlayersContainer extends React.Component {
     }
 
     handleButtonClick = () => {
-        this.props.store.dispatch(addPlayer())
+        this.props.addPlayer()
     }
 }
 
@@ -24,9 +24,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         addPlayer: ()=>{
-            dispatch()
+            dispatch(addPlayer())
         }
     }
 }
 
-export default connect(mapStateToProps)(PlayersContainer); 
+export default connect(mapStateToProps, mapDispatchToProps)(PlayersContainer); 
