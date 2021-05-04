@@ -18,7 +18,7 @@ class PlayersContainer extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        this.props.addPlayer()
+        this.props.addPlayer(event.target.username.value); //make controlled input
     }
 
     
@@ -30,8 +30,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPlayer: ()=>{
-            dispatch(addPlayer())
+        addPlayer: (username)=>{
+            dispatch(addPlayer(username))
         }
     }
 }

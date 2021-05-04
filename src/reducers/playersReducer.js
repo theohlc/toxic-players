@@ -3,12 +3,11 @@ export function playersReducer(state = {
 }, action) {
     switch (action.type) {
         case 'ADD_PLAYER':
-            console.log('ADD_PLAYER action executed')
             return {
                 ...state,
                 players: [
                     ...state.players,
-                    {username: 'users name'}
+                    {username: action.username}
                 ]
             }
     

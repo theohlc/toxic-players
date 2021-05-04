@@ -1,3 +1,3 @@
-export const addPlayer = () => {
-    return { type: 'ADD_PLAYER' }
+export const addPlayer = (username) => {
+    return { type: 'ADD_PLAYER', username: username }
 }
