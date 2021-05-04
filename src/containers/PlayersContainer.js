@@ -7,7 +7,7 @@ class PlayersContainer extends React.Component {
         return(
             <div>
                 PlayersList players=players
-                <button onClick={this.handleButtonClick}>BTN</button>
+                <button onClick={this.handleButtonClick}>Add Player</button>
             </div>
         )
     }
