@@ -5,7 +5,7 @@ import Player from "./Player";
 class PlayerList extends Component {
     renderPlayers = () => {
         return this.props.players.map((player)=>{
-            return <Player store={this.props.store} player={player}/>
+            return <Player player={player}/>
         });
     };
     

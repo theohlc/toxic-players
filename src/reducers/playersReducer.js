@@ -7,7 +7,10 @@ export function playersReducer(state = {
                 ...state,
                 players: [
                     ...state.players,
-                    {username: action.username}
+                    {
+                        username: action.username,
+                        id: (state.players.length + 1)
+                    }
                 ]
             }
     

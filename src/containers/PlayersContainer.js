@@ -7,11 +7,11 @@ class PlayersContainer extends React.Component {
     render(){
         return(
             <div>
-                <PlayerList store={this.props.store}/>
                 <form onSubmit={this.handleOnSubmit}>
-                    <input type='text' name='username'/>
+                    <input type='text' name='username'/> {/** add fields for offence, etc */}
                     <input type='submit' value='Report User'/>
                 </form>
+                <PlayerList store={this.props.store}/>
             </div>
         )
     }
