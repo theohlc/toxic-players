@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addPlayer } from "../actions/players";
+import PlayerList from "../components/PlayerList";
 
 class PlayersContainer extends React.Component {
     render(){
         return(
             <div>
-                PlayersList players=players
+                <PlayerList />
                 <button onClick={this.handleButtonClick}>Add Player</button>
             </div>
         )
