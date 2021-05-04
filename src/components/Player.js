@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 export default function Player(player) {
     return(
         <div className='player'>
