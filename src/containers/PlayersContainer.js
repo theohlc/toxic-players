@@ -8,12 +8,16 @@ class PlayersContainer extends React.Component {
         return(
             <div>
                 <PlayerList store={this.props.store}/>
-                <button onClick={this.handleButtonClick}>Add Player</button>
+                <form onSubmit={this.handleOnSubmit}>
+                    <input type='text' name='username'/>
+                    <input type='submit' value='Report User'/>
+                </form>
             </div>
         )
     }
 
-    handleButtonClick = () => {
+    handleOnSubmit = (event) => {
+        event.preventDefault();
         this.props.addPlayer()
     }
 
