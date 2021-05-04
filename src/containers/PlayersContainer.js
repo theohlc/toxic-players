@@ -7,7 +7,7 @@ class PlayersContainer extends React.Component {
     render(){
         return(
             <div>
-                <PlayerList players={players}/>
+                <PlayerList store={this.props.store}/>
                 <button onClick={this.handleButtonClick}>Add Player</button>
             </div>
         )
@@ -20,11 +20,6 @@ class PlayersContainer extends React.Component {
     
 }
 
-let players = [
-    {username: 'user1'},
-    {username: 'user2'},
-    {username: 'user3'},
-]
 const mapStateToProps = (state) => {
     return state
 };

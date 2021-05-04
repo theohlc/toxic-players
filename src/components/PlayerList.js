@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 
 class PlayerList extends Component {
     renderPlayers = () => {
@@ -16,5 +17,8 @@ class PlayerList extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return state
+};
 
-export default PlayerList;
+export default connect(mapStateToProps)(PlayerList)
