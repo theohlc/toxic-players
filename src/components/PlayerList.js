@@ -16,12 +16,5 @@ class PlayerList extends Component {
     }
 }
 
-PlayerList.defaultProps = {
-    players: [
-        {username: 'user1'},
-        {username: 'user2'},
-        {username: 'user3'},
-    ]
-}
 
 export default PlayerList;

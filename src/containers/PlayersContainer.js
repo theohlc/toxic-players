@@ -7,7 +7,7 @@ class PlayersContainer extends React.Component {
     render(){
         return(
             <div>
-                <PlayerList />
+                <PlayerList players={players}/>
                 <button onClick={this.handleButtonClick}>Add Player</button>
             </div>
         )
@@ -16,8 +16,15 @@ class PlayersContainer extends React.Component {
     handleButtonClick = () => {
         this.props.addPlayer()
     }
+
+    
 }
 
+let players = [
+    {username: 'user1'},
+    {username: 'user2'},
+    {username: 'user3'},
+]
 const mapStateToProps = (state) => {
     return state
 };
