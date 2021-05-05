@@ -1,6 +1,17 @@
 export const addPlayer = (username) => {
-    return { type: 'ADD_PLAYER', payload: {
-        username: username} 
+    return (dispatch) => {
+        dispatch({ type: 'START_ADDING_PLAYER_REQUEST' });
+        fetch('http://localhost:3000/players', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'player': {
+                    'username': username
+                }
+            })
+        })
+            .then(res => res.json())
+            .then(player => dispatch({ type: 'ADD_PLAYER', payload: { player }}))
     }
 }
 

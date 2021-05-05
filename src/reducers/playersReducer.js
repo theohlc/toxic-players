@@ -7,15 +7,11 @@ export function playersReducer(state = {
                 ...state,
                 players: [
                     ...state.players,
-                    {
-                        username: action.payload.username,
-                        id: (state.players.length + 1)
-                    }
+                    action.payload.player
                 ]
             }
 
         case 'ADD_PLAYERS':
-            console.log(action.payload)
             return {
                 ...state,
                 players: action.payload.players
