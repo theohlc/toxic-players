@@ -13,10 +13,18 @@ export default class ReportContainer extends Component {
         return(
             <div>
                 This is a ReportContainer for {this.props.player.username}
-                <ReportList reports={this.state.reports}/>
+                <ReportList reports={this.state.reports} destroyReport={this.destroyReport.bind(this)}/>
                 <button onClick={this.handleClick}>Add Report</button>
             </div>
         )
+    }
+
+    destroyReport(event) {
+        fetch(`http://localhost:3000/players/${this.props.player.id}/reports/${event.target.parentElement.id}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}
+            })
+        .then(event.target.parentElement.remove())
     }
 
     componentDidMount = () => {

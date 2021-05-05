@@ -5,7 +5,7 @@ export default class ReportList extends Component {
     
     renderReports() {
         return(this.props.reports.map((report) => {
-            return(<Report report={report} key={`reporty${report.id}`}/>)
+            return(<Report report={report} key={`reporty${report.id}`} destroyReport={this.props.destroyReport}/>)
         }))
     }
 
