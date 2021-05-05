@@ -9,6 +9,7 @@ export function reportsReducer(state = [], action) {
             return state;
     
         default:
+            console.log('hit default in reportsReducer')
             return state;
     }
 }
