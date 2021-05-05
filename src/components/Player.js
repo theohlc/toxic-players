@@ -1,11 +1,11 @@
-import ReportList from "./ReportList";
+import ReportContainer from "../containers/ReportContainer";
 
 export default function Player({player}) {
     return(
         <div className='player'>
             <p>{player.id}</p>
             <p>{player.username}</p>
-            <ReportList player={player}/>
+            <ReportContainer player={player}/>
         </div>
     )
 }
