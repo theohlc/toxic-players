@@ -1,7 +1,7 @@
-export default function Report(props) {
+export default function Report({ report }) {
     return(
-        <div>
-            <p>This is a ReportComponent(functional)</p>
+        <div className='report'>
+            <p>{report.text}</p>
         </div>
     )
 }

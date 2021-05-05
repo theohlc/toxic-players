@@ -1,15 +1,19 @@
 import { Component } from "react";
+import Report from "./Report";
 
 export default class ReportList extends Component {
-    renderReports = () => {
-        this
-    }
     
+    renderReports() {
+        return(this.props.reports.map((report) => {
+            return(<Report report={report}/>)
+        }))
+    }
+
     render() {
         return(
-            <ul>
-                <li>ReportList</li>
-            </ul>
+            <div>
+                {this.renderReports()}
+            </div>
         )
     }
 }
