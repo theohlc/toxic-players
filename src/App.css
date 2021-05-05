@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.player{
+  background: rgb(145, 216, 149);
+  height: auto;
+  width: 500px;
+  padding: 10px;
+  margin: 10px 20px;
+  display: inline-grid;
+}
