@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addPlayer } from "../actions/players";
+import { addPlayer, fetchPlayers } from "../actions/players";
 import PlayerList from "../components/PlayerList";
 
 class PlayersContainer extends React.Component {
@@ -21,6 +21,10 @@ class PlayersContainer extends React.Component {
         this.props.addPlayer(event.target.username.value); //make controlled input
     }
 
+    componentDidMount = () => {
+        this.props.fetchPlayers();
+    }
+
     
 }
 
@@ -32,7 +36,8 @@ const mapDispatchToProps = dispatch => {
     return {
         addPlayer: (username)=>{
             dispatch(addPlayer(username))
-        }
+        },
+        fetchPlayers: ()=>{dispatch(fetchPlayers())}
     }
 }
 

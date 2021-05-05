@@ -13,6 +13,13 @@ export function playersReducer(state = {
                     }
                 ]
             }
+
+        case 'ADD_PLAYERS':
+            console.log(action.payload)
+            return {
+                ...state,
+                players: action.payload.players
+            }
     
         default:
             return state;

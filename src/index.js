@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { playersReducer } from './reducers/playersReducer';
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 
 let store = createStore(playersReducer, applyMiddleware(thunk))
