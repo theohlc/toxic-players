@@ -8,7 +8,7 @@ export function playersReducer(state = {
                 players: [
                     ...state.players,
                     {
-                        username: action.username,
+                        username: action.payload.username,
                         id: (state.players.length + 1)
                     }
                 ]

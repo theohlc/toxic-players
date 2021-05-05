@@ -1,3 +1,5 @@
 export const addPlayer = (username) => {
-    return { type: 'ADD_PLAYER', username: username }
+    return { type: 'ADD_PLAYER', payload: {
+        username: username} 
+    }
 }
