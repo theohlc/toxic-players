@@ -1,6 +1,13 @@
 import { Component } from "react";
 
 export default class ReportContainer extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            reports: []
+        }
+    }
+    
     render(){
         return(
             <div>
@@ -13,7 +20,7 @@ export default class ReportContainer extends Component {
     componentDidMount = () => {
         fetch(`http://localhost:3000/players/${this.props.player.id}/reports`)
         .then(res => res.json())
-        .then(json => console.log(json))
+        .then(json => this.setState({ reports: json }))
     }
 
     handleClick = () => {
