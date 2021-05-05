@@ -26,6 +26,17 @@ export default class ReportContainer extends Component {
     }
 
     handleClick = () => {
-        console.log('add report')
+        fetch(`http://localhost:3000/players/${this.props.player.id}/reports`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'report': {
+                    'text': 'this guy sucks',
+                    'player_id': 1
+                }
+            })
+        })
+        // .then(res => res.json())
+        // .then(json => this.setState({ reports: json }))
     }
 }

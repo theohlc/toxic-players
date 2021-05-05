@@ -45,3 +45,12 @@
   margin: 10px 20px;
   display: inline-grid;
 }
+
+.report{
+  background: rgb(128, 121, 218);
+  height: auto;
+  width: 400px;
+  padding: 10px;
+  margin: 10px 20px;
+  display: inline-grid;
+}
