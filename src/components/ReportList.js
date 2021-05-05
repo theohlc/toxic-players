@@ -10,6 +10,12 @@ export default class ReportList extends Component {
         )
     }
 
+    componentDidMount = () => {
+        fetch(`http://localhost:3000/players/${this.props.player.id}/reports`)
+        .then(res => res.json())
+        .then(json => console.log(json))
+    }
+
     handleClick = () => {
         console.log('add report')
     }
