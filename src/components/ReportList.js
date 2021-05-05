@@ -1,11 +1,12 @@
 import { Component } from "react";
 import Report from "./Report";
+import { connect } from "react-redux";
 
-export default class ReportList extends Component {
+class ReportList extends Component {
     
     renderReports() {
         return(this.props.reports.map((report) => {
-            return(<Report report={report} key={`reporty${report.id}`} destroyReport={this.props.destroyReport}/>)
+            return(<Report report={report} key={`report${report.id}`} destroyReport={this.props.destroyReport}/>)
         }))
     }
 
@@ -17,3 +18,9 @@ export default class ReportList extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return state
+};
+
+export default connect(mapStateToProps)(ReportList)

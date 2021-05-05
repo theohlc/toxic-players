@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { playersReducer } from './reducers/playersReducer';
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from 'redux-thunk';
+import { reportsReducer } from './reducers/reportsReducer';
 
-let store = createStore(playersReducer, applyMiddleware(thunk))
+let rootReducer = combineReducers({
+  players: playersReducer, 
+  reports: reportsReducer
+});
+
+let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>

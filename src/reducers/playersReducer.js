@@ -1,21 +1,15 @@
-export function playersReducer(state = {
-    players: []
-}, action) {
+export function playersReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_PLAYER':
-            return {
-                ...state,
-                players: [
-                    ...state.players,
+            return [
+                    ...state,
                     action.payload.player
-                ]
-            }
+            ]
 
         case 'ADD_PLAYERS':
-            return {
-                ...state,
-                players: action.payload.players
-            }
+            return [
+                action.payload.players
+            ]
     
         default:
             return state;
