@@ -36,7 +36,7 @@ export default class ReportContainer extends Component {
                 }
             })
         })
-        // .then(res => res.json())
-        // .then(json => this.setState({ reports: json }))
+        .then(res => res.json())
+        .then(json => this.setState({ reports: [...this.state.reports, json] }))
     }
 }
