@@ -4,10 +4,9 @@ import Player from "./Player";
 
 class PlayerList extends Component {
     renderPlayers = () => {
-        // console.log(this.props)
-        // return this.props.players.map((player)=>{
-        //     return <Player player={player} key={player.id}/>
-        // });
+        return this.props.players.map((player)=>{
+            return <Player player={player} key={player.id}/>
+        });
     };
     
     render() {
