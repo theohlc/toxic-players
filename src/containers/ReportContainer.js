@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ReportList from "../components/ReportList";
 
 export default class ReportContainer extends Component {
     constructor(props){
@@ -12,6 +13,7 @@ export default class ReportContainer extends Component {
         return(
             <div>
                 This is a ReportContainer for {this.props.player.username}
+                <ReportList reports={this.state.reports}/>
                 <button onClick={this.handleClick}>Add Report</button>
             </div>
         )
