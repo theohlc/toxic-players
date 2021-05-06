@@ -6,7 +6,6 @@ export default function ReportList(props) {
     const renderReports = () => {
         if (props.reports) {
             return(props.reports.map((report) => {
-                console.log(report);
                 return(<Report report={report} key={`report${report.id}`} destroyReport={props.destroyReport}/>)
         }))
         }
