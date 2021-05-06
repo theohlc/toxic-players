@@ -5,9 +5,12 @@ import { connect } from "react-redux";
 class ReportList extends Component {
     
     renderReports() {
-        return(this.props.reports.map((report) => {
+        if (this.props.reports[this.props.player.id]) {
+            return(this.props.reports[this.props.player.id].map((report) => {
             return(<Report report={report} key={`report${report.id}`} destroyReport={this.props.destroyReport}/>)
         }))
+        }
+        
     }
 
     render() {

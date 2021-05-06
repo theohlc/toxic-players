@@ -12,7 +12,7 @@ export function playersReducer(state = [], action) {
             ]
     
         default:
-            console.log('hit default in playersReducer')
+            // console.log('hit default in playersReducer')
             return state;
     }
 }

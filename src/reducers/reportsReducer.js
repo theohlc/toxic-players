@@ -1,15 +1,17 @@
-export function reportsReducer(state = [], action) {
+export function reportsReducer(state = {}, action) {
     switch (action.type) {
         case 'ADD_REPORT':
             console.log(action);
             return state;
 
         case 'ADD_REPORTS':
-            console.log(action);
-            return state;
+            return {
+                ...state,
+                [action.payload.id]: action.payload.reports
+            }
     
         default:
-            console.log('hit default in reportsReducer')
+            // console.log('hit default in reportsReducer')
             return state;
     }
 }

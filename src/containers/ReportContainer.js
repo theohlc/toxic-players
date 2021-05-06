@@ -9,7 +9,7 @@ class ReportContainer extends Component {
         return(
             <div>
                 This is a ReportContainer for {this.props.player.username}
-                <ReportList store={this.props.store} destroyReport={this.destroyReport.bind(this)}/>
+                <ReportList player={this.props.player} store={this.props.store} destroyReport={this.destroyReport.bind(this)}/>
                 <button onClick={this.handleClick}>Add Report</button>
             </div>
         )
@@ -24,10 +24,7 @@ class ReportContainer extends Component {
     }
 
     componentDidMount = () => {
-        this.props.fetchReports();
-        // fetch(`http://localhost:3000/players/${this.props.player.id}/reports`)
-        // .then(res => res.json())
-        // .then(json => this.setState({ reports: json }))
+        this.props.fetchReports(this.props.player);
     }
 
     handleClick = () => {
@@ -53,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchReports: ()=>{dispatch(fetchReports())},
+        fetchReports: (player)=>{dispatch(fetchReports(player))},
         addReport: ()=>{dispatch(addReport())},
     }
 }
