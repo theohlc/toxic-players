@@ -20,6 +20,12 @@ export function reportsReducer(state = {}, action) {
             state[action.payload.report.player_id].splice(reportIndex - 1, 1)
             
             return state;
+
+        case 'SWITCH_REPORT_FORM':
+            return {
+                ...state,
+                formLocation: action.payload.player
+            }
     
         default:
             // console.log('hit default in reportsReducer')

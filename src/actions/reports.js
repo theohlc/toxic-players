@@ -36,3 +36,7 @@ export const removeReport = (report) => {
             .then(report => dispatch({ type: 'REMOVE_REPORT', payload: { report, id: report.player_id } }))
     }
 }
+
+export const switchReportForm = (player = {}) => {
+    return { type: 'SWITCH_REPORT_FORM', payload: { player } }
+}

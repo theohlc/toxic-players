@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { addReport, fetchReports, removeReport } from "../actions/reports";
+import { addReport, fetchReports, removeReport, switchReportForm } from "../actions/reports";
 import ReportList from "../components/ReportList";
 
 class ReportContainer extends Component {
@@ -10,12 +10,26 @@ class ReportContainer extends Component {
             <div>
                 This is a ReportContainer for {this.props.player.username}
                 <ReportList player={this.props.player} store={this.props.store} destroyReport={this.destroyReport.bind(this)}/>
+                {this.reportForm()}
+            </div>
+        )
+    }
+
+    reportForm = () => {
+        if (this.props.reports.formLocation === this.props.player) {
+            return (
                 <form onSubmit={this.handleSubmit}>
                     <input type='text' name='text'/>
                     <input type='submit' value='submit report'/>
                 </form>
-            </div>
-        )
+            );
+        } else {
+            return (<button onClick={this.handleClick}>Add a Report</button>)
+        }
+    }
+
+    handleClick = () => {
+        this.props.switchReportForm(this.props.player);
     }
 
     destroyReport(report) {
@@ -28,6 +42,7 @@ class ReportContainer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.props.switchReportForm();
         this.props.addReport(this.props.player, event.target.text.value);
     }
 }
@@ -40,7 +55,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchReports: (player)=>{dispatch(fetchReports(player))},
         addReport: (player, text)=>{dispatch(addReport(player, text))},
-        removeReport: (report)=>{dispatch(removeReport(report))}
+        removeReport: (report)=>{dispatch(removeReport(report))},
+        switchReportForm: (player)=>{dispatch(switchReportForm(player))}
     }
 }
 
