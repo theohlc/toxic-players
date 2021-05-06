@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addReport, fetchReports, removeReport, switchReportForm } from "../actions/reports";
 import ReportList from "../components/ReportList";
@@ -10,7 +9,7 @@ class ReportContainer extends Component {
         return(
             <div>
                 This is a ReportContainer for {this.props.player.username}
-                <ReportList player={this.props.player} store={this.props.store} destroyReport={this.destroyReport.bind(this)}/>
+                <ReportList player={this.props.player} reports={this.props.reports[this.props.player.id]} destroyReport={this.destroyReport.bind(this)}/>
                 {this.reportForm()}
             </div>
         )
@@ -25,7 +24,7 @@ class ReportContainer extends Component {
                 </form>
             );
         } else {
-            return (<Button onClick={this.handleClick}>Add a Report</Button>)
+            return (<button onClick={this.handleClick}>Add a Report</button>)
         }
     }
 
