@@ -7,6 +7,7 @@ import { playersReducer } from './reducers/playersReducer';
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from 'redux-thunk';
 import { reportsReducer } from './reducers/reportsReducer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 let rootReducer = combineReducers({
   players: playersReducer, 
