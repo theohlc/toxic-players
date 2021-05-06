@@ -24,3 +24,15 @@ export const fetchReports = (player) => {
             .then(reports => dispatch({ type: 'ADD_REPORTS', payload: { reports, id: player.id } }))
     }
 }
+
+export const removeReport = (report) => {
+    return (dispatch) => {
+        dispatch({ type: 'START_REMOVING_REPORTS_REQUEST' });
+        fetch(`http://localhost:3000/players/${report.player_id}/reports/${report.id}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(report => dispatch({ type: 'REMOVE_REPORT', payload: { report, id: report.player_id } }))
+    }
+}

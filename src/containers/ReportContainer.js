@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { addReport, fetchReports } from "../actions/reports";
+import { addReport, fetchReports, removeReport } from "../actions/reports";
 import ReportList from "../components/ReportList";
 
 class ReportContainer extends Component {
@@ -18,12 +18,8 @@ class ReportContainer extends Component {
         )
     }
 
-    destroyReport(event) {
-        fetch(`http://localhost:3000/players/${this.props.player.id}/reports/${event.target.parentElement.id}`, {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'}
-            })
-        .then(event.target.parentElement.remove())
+    destroyReport(report) {
+        this.props.removeReport(report);
     }
 
     componentDidMount = () => {
@@ -44,6 +40,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchReports: (player)=>{dispatch(fetchReports(player))},
         addReport: (player, text)=>{dispatch(addReport(player, text))},
+        removeReport: (report)=>{dispatch(removeReport(report))}
     }
 }
 
