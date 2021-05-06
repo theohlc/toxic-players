@@ -2,7 +2,13 @@ export function reportsReducer(state = {}, action) {
     switch (action.type) {
         case 'ADD_REPORT':
             console.log(action);
-            return state;
+            return {
+                ...state,
+                [action.payload.id]: [
+                    ...state[action.payload.id],
+                    action.payload.report
+                ]
+            }
 
         case 'ADD_REPORTS':
             return {

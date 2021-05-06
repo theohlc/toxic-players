@@ -10,7 +10,10 @@ class ReportContainer extends Component {
             <div>
                 This is a ReportContainer for {this.props.player.username}
                 <ReportList player={this.props.player} store={this.props.store} destroyReport={this.destroyReport.bind(this)}/>
-                <button onClick={this.handleClick}>Add Report</button>
+                <form onSubmit={this.handleSubmit}>
+                    <input type='text' name='text'/>
+                    <input type='submit' value='submit report'/>
+                </form>
             </div>
         )
     }
@@ -27,8 +30,9 @@ class ReportContainer extends Component {
         this.props.fetchReports(this.props.player);
     }
 
-    handleClick = () => {
-        this.props.addReport();
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.addReport(this.props.player, event.target.text.value);
         // fetch(`http://localhost:3000/players/${this.props.player.id}/reports`, {
         //     method: 'POST',
         //     headers: {'Content-Type': 'application/json'},
@@ -51,7 +55,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchReports: (player)=>{dispatch(fetchReports(player))},
-        addReport: ()=>{dispatch(addReport())},
+        addReport: (player, text)=>{dispatch(addReport(player, text))},
     }
 }
 
