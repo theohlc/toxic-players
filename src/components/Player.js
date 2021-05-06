@@ -1,11 +1,13 @@
 import ReportContainer from "../containers/ReportContainer";
+import Card from 'react-bootstrap/Card'
 
 export default function Player({player, store}) {
     return(
-        <div className='player'>
-            <p>{player.id}</p>
-            <p>{player.username}</p>
-            <ReportContainer player={player} store={store}/>
-        </div>
+        <Card style={{ width: '32rem' }}>
+            <Card.Body>
+                <Card.Title>{player.username}</Card.Title>
+                <ReportContainer player={player} store={store}/>
+            </Card.Body>
+        </Card>
     )
 }

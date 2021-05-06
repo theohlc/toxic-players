@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import Player from "./Player";
+import CardColumns from 'react-bootstrap/CardColumns'
 
 class PlayerList extends Component {
     renderPlayers = () => {
@@ -11,9 +12,9 @@ class PlayerList extends Component {
     
     render() {
         return(
-            <ul>
+            <CardColumns>
                 {this.props.players[0] ? this.renderPlayers() : null}
-            </ul>
+            </CardColumns>
         )
     }
 }

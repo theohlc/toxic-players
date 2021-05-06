@@ -1,3 +1,6 @@
+import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+
 export default function Report({ report, destroyReport }) {
     const handleClick = (event) => {
         destroyReport(report)
@@ -5,9 +8,12 @@ export default function Report({ report, destroyReport }) {
     }
     
     return(
-        <div className='report' id={report.id}>
-            <p>{report.text}</p>
-            <button onClick={handleClick}>X</button>
-        </div>
+        <Card id={report.id} style={{ width: '12rem' }}>
+            <Card.Title>Report type</Card.Title>
+            <Card.Text>
+                {report.text}<br></br>
+                <Button onClick={handleClick}>X</Button>
+            </Card.Text>
+        </Card>
     )
 }

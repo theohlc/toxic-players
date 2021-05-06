@@ -1,4 +1,4 @@
-
+import CardDeck from 'react-bootstrap/CardDeck'
 import Report from "./Report";
 
 export default function ReportList(props) {
@@ -13,8 +13,8 @@ export default function ReportList(props) {
     }
 
     return(
-            <div>
-                {renderReports()}
-            </div>
+        <CardDeck>
+            {renderReports()}
+        </CardDeck>        
     )
 }

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addReport, fetchReports, removeReport, switchReportForm } from "../actions/reports";
 import ReportList from "../components/ReportList";
@@ -24,7 +25,7 @@ class ReportContainer extends Component {
                 </form>
             );
         } else {
-            return (<button onClick={this.handleClick}>Add a Report</button>)
+            return (<Button onClick={this.handleClick}>Add a Report</Button>)
         }
     }
 
