@@ -33,18 +33,6 @@ class ReportContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.addReport(this.props.player, event.target.text.value);
-        // fetch(`http://localhost:3000/players/${this.props.player.id}/reports`, {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify({
-        //         'report': {
-        //             'text': 'this guy sucks',
-        //             'player_id': this.props.player.id
-        //         }
-        //     })
-        // })
-        // .then(res => res.json())
-        // .then(json => this.setState({ reports: [...this.state.reports, json] }))
     }
 }
 
