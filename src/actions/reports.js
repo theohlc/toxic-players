@@ -1,4 +1,4 @@
-export const addReport = (player, text) => {
+export const addReport = (player, text, type) => {
     return (dispatch) => {
         dispatch({ type: 'START_ADDING_PLAYER_REQUEST' });
         fetch(`http://localhost:3000/players/${player.id}/reports`, {
@@ -7,6 +7,7 @@ export const addReport = (player, text) => {
             body: JSON.stringify({
                 'report': {
                     'text': text,
+                    'report_type': type,
                     'player_id': player.id
                 }
             })

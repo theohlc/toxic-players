@@ -9,7 +9,7 @@ export default function Report({ report, destroyReport }) {
     
     return(
         <Card id={report.id} style={{ width: '12rem' }}>
-            <Card.Title>Report type</Card.Title>
+            <Card.Title>{report.report_type}</Card.Title>
             <Card.Text>
                 {report.text}<br></br>
                 <Button onClick={handleClick}>X</Button>

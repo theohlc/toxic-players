@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchReports: (player)=>{dispatch(fetchReports(player))},
-        addReport: (player, text)=>{dispatch(addReport(player, text))},
+        addReport: (player, text, type)=>{dispatch(addReport(player, text, type))},
         removeReport: (report)=>{dispatch(removeReport(report))},
         switchReportForm: (player)=>{dispatch(switchReportForm(player))}
     }
