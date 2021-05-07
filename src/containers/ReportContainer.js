@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addReport, fetchReports, removeReport, switchReportForm } from "../actions/reports";
 import ReportList from "../components/ReportList";
@@ -19,10 +19,24 @@ class ReportContainer extends Component {
     reportForm = () => {
         if (this.props.reports.formLocation === this.props.player) {
             return (
-                <form onSubmit={this.handleSubmit}>
-                    <input type='text' name='text'/>
-                    <input type='submit' value='submit report'/>
-                </form>
+                <Form onSubmit={this.handleSubmit} className='form'>
+                    <Form.Group controlId="type">
+                        <Form.Label>What did the player do?</Form.Label>
+                        <Form.Control as="select">
+                        <option>Ran it down mid</option>
+                        <option>Was terrible at the game</option>
+                        <option>Disconnected</option>
+                        <option>Obscenity</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="text">
+                        <Form.Label>Describe the Incident</Form.Label>
+                        <Form.Control as="textarea" rows={3}/>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
             );
         } else {
             return (<Button onClick={this.handleClick}>Add a Report</Button>)
@@ -44,7 +58,7 @@ class ReportContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.switchReportForm();
-        this.props.addReport(this.props.player, event.target.text.value);
+        this.props.addReport(this.props.player, event.target.text.value, event.target.type.value);
     }
 }
 

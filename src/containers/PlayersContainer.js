@@ -6,7 +6,7 @@ import PlayerList from "../components/PlayerList";
 class PlayersContainer extends React.Component {
     render(){
         return(
-            <div>
+            <div className='container-fluid bcontent'>
                 <form onSubmit={this.handleOnSubmit}>
                     <input type='text' name='username'/> {/** add fields for offence, etc */}
                     <input type='submit' value='Report User'/>
