@@ -44,3 +44,11 @@ export const fetchPlayers = () => {
             .then(players => dispatch({ type: 'ADD_PLAYERS', payload: { players }}))
     }
 }
+
+export const voteOnPlayer = (toxicVote, player) => {
+    if (toxicVote === true) {
+        return { type: 'TOXIC_VOTE', player}
+    } else {
+        return { type: 'NOT_TOXIC_VOTE', player}
+    }
+}

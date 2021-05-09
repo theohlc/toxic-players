@@ -7,12 +7,21 @@ export function playersReducer(state = [], action) {
             ]
 
         case 'ADD_PLAYERS':
-            return [
-                action.payload.players
-            ]
+            return action.payload.players
+
+        case 'TOXIC_VOTE':
+            var playerIndex = state.findIndex(player => player.id === action.player.id)
+            state[playerIndex].score = state[playerIndex].score + 1
+
+            return state;
+
+        case 'NOT_TOXIC_VOTE':
+            var playerIndex = state.findIndex(player => player.id === action.player.id)
+            state[playerIndex].score = state[playerIndex].score - 1
+        
+            return state;
     
         default:
-            // console.log('hit default in playersReducer')
             return state;
     }
 }
