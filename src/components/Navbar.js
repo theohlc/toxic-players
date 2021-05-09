@@ -16,7 +16,7 @@ function Navbar(){
                 </Button>
             </Link>
             {'      '}
-            <Link to='/report-player'>
+            <Link to='/new'>
                 <Button>
                     Report a Player
                 </Button>

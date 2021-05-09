@@ -14,7 +14,7 @@ class App extends Component {
         <div className="App">
           <Navbar/>
           <Route exact path='/' component={() => <PlayersContainer store={this.props.store}/>}/>
-          <Route exact path='/report-player' component={() => <PlayerForm store={this.props.store}/>}/>
+          <Route exact path='/new' component={() => <PlayerForm store={this.props.store}/>}/>
           <Route exact path='/search' component={() => <SearchContainer store={this.props.store}/>}/>
         </div>
       </Router>
