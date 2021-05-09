@@ -3,7 +3,7 @@ import VotingButtons from "./VotingButtons";
 
 export default function Player({player, store}) {
     return(
-        <div className='player'>
+        <div className='player' style={{backgroundColor: `rgb(100, ${player.score * 5}, 255)`}}>
             <VotingButtons player={player} store={store}/>
             <p>{player.id} {player.username}</p>
             <ReportContainer player={player} store={store}/>

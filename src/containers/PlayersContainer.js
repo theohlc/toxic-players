@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addPlayer, fetchPlayers } from "../actions/players";
+import { fetchPlayers } from "../actions/players";
 import PlayerList from "../components/PlayerList";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button"
@@ -9,12 +9,18 @@ class PlayersContainer extends React.Component {
     render(){
         return(
             <div className='container-fluid bcontent'>
-                <Link to='/report-player'>
+                <Link to='/search'>
                     <Button>
-                        Report Player
+                        Search For a Player
                     </Button>
                 </Link>
-                <PlayerList store={this.props.store}/>
+                {'      '}
+                <Link to='/report-player'>
+                    <Button>
+                        Report a Player
+                    </Button>
+                </Link>
+                <PlayerList players={this.props.players} store={this.props.store}/>
             </div>
         )
     }
@@ -37,9 +43,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPlayer: (username)=>{
-            dispatch(addPlayer(username))
-        },
         fetchPlayers: ()=>{dispatch(fetchPlayers())}
     }
 }
