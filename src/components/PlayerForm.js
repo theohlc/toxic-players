@@ -1,14 +1,16 @@
 import { Component } from 'react';
 import { Button, Form } from "react-bootstrap";
+import { connect } from 'react-redux';
+import { addPlayer } from '../actions/players';
 
 class PlayerForm extends Component {
     render() {
         return (
             <div className='container'>
                 <Form onSubmit={this.handleOnSubmit}>
-                    <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Group controlId="username">
                         <Form.Label>Players Username</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
+                        <Form.Control type="text" placeholder="name@example.com" />
                     </Form.Group>
                     <Form.Group controlId="type">
                         <Form.Label>What did the player do?</Form.Label>
@@ -32,8 +34,19 @@ class PlayerForm extends Component {
     }
 
     handleOnSubmit = (event) => {
-        console.log(event.target)
+        event.preventDefault();
+        this.props.addPlayer(event.target.username.value, event.target.type.value, event.target.text.value)
     }
 }
 
-export default PlayerForm
+const mapStateToProps = (state) => {
+    return state
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPlayer: (username, text, type)=>{dispatch(addPlayer(username, text, type))}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerForm)

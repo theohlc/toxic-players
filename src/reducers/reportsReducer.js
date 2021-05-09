@@ -9,6 +9,15 @@ export function reportsReducer(state = {}, action) {
                 ]
             }
 
+        case 'ADD_REPORT_NEW_USER':
+            console.log(action)
+            return {
+                ...state,
+                [action.payload.id]: [
+                    action.payload.report
+                ]
+            }
+        
         case 'ADD_REPORTS':
             return {
                 ...state,
