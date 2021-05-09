@@ -1,10 +1,23 @@
 import { Component } from 'react';
 import { Button, Form } from "react-bootstrap";
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { addPlayer } from '../actions/players';
 
 class PlayerForm extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            redirectToHome: false
+        }
+    }
+
     render() {
+        if (this.state.redirectToHome === true) {
+            return(<Redirect to='/' />)
+        }
+
         return (
             <div className='container'>
                 <Form onSubmit={this.handleOnSubmit}>
@@ -36,6 +49,7 @@ class PlayerForm extends Component {
     handleOnSubmit = (event) => {
         event.preventDefault();
         this.props.addPlayer(event.target.username.value, event.target.type.value, event.target.text.value)
+        this.setState({redirectToHome: true})
     }
 }
 
