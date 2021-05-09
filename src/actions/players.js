@@ -46,7 +46,14 @@ export const fetchPlayers = () => {
 }
 
 export const voteOnPlayer = (toxicVote, player) => {
-    if (toxicVote === true) {
+    fetch(`http://localhost:3000/players/${player.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'toxic_vote': toxicVote
+            })
+        })
+    if (toxicVote === true) {        
         return { type: 'TOXIC_VOTE', player}
     } else {
         return { type: 'NOT_TOXIC_VOTE', player}

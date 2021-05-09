@@ -48,7 +48,7 @@ class PlayerForm extends Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        this.props.addPlayer(event.target.username.value, event.target.type.value, event.target.text.value)
+        this.props.addPlayer(event.target.username.value, event.target.text.value, event.target.type.value)
         this.setState({redirectToHome: true})
     }
 }
