@@ -9,7 +9,7 @@ class ReportContainer extends Component {
     render(){
         return(
             <div>
-                This is a ReportContainer for {this.props.player.username}
+                These are all the reports for {this.props.player.username}:
                 <ReportList player={this.props.player} reports={this.props.reports[this.props.player.id]} destroyReport={this.destroyReport.bind(this)}/>
                 {this.reportForm()}
             </div>

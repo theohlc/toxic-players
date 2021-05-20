@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 export default function Report({ report, destroyReport }) {
     const handleClick = (event) => {
         destroyReport(report)
-        event.target.parentElement.remove();
+        event.target.parentElement.parentElement.remove();
     }
     
     return(
