@@ -28,7 +28,7 @@ class PlayerForm extends Component {
                     <Form.Group controlId="type">
                         <Form.Label>What did the player do?</Form.Label>
                         <Form.Control as="select">
-                        <option>Ran it down mid</option>
+                        <option>Intentionally trolled</option>
                         <option>Was terrible at the game</option>
                         <option>Disconnected</option>
                         <option>Obscenity</option>
