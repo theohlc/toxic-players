@@ -7,7 +7,7 @@ class PlayersContainer extends React.Component {
     render(){
         return(
             <div className='container-fluid bcontent'>
-                <PlayerList players={this.props.players} store={this.props.store}/>
+                <PlayerList players={this.props.players}/>
             </div>
         )
     }

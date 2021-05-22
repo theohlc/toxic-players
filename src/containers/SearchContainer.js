@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons';
 import { connect } from 'react-redux';
 import { fetchPlayers } from "../actions/players";
@@ -23,7 +23,7 @@ class SearchContainer extends Component {
                     <Button onClick={this.handleClick}>
                         <Search/>
                     </Button>
-                    <PlayerList players={this.state.players} store={this.props.store}/>
+                    <PlayerList players={this.state.players}/>
             </div>
         )
     }

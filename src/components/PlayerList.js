@@ -1,9 +1,9 @@
 import Player from "./Player";
 
-function PlayerList({ players, store }) {
+function PlayerList({ players }) {
     const renderPlayers = () => {
         return players.map((player)=>{
-            return <Player store={store} player={player} key={`player${player.id}`}/>
+            return <Player player={player} key={`player${player.id}`}/>
         });
     };
     
